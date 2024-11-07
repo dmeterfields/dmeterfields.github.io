@@ -4,18 +4,13 @@
 
 <div class="container">
   <img id="sigil" src="{img}" alt="Dmeter Fields Logo" />
+  <h2 class="rubik-light">Coming Soon</h2>
 </div>
 
 <style>
-  :global(body) {
-    background-color: #005843;
-    height: 100vh;
-    width: 100vw;
-    margin: 0;
-  }
 
   #sigil {
-    height: 32rem;
+    width: calc(min(16rem, 50vh));
   }
 
   .container {
@@ -25,5 +20,6 @@
     align-items: center;
     height: 100%;
     width: 100%;
+    color: white;
   }
 </style>
