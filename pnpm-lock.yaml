@@ -35,10 +35,10 @@ importers:
         version: 4.0.4(svelte@5.37.2)(vite@5.4.19(lightningcss@1.30.1))
       '@tailwindcss/forms':
         specifier: ^0.5.9
-        version: 0.5.10(tailwindcss@4.1.11)
+        version: 0.5.10
       '@tailwindcss/typography':
         specifier: ^0.5.15
-        version: 0.5.16(tailwindcss@4.1.11)
+        version: 0.5.16
       '@tailwindcss/vite':
         specifier: ^4.0.0
         version: 4.1.11(vite@5.4.19(lightningcss@1.30.1))
@@ -86,10 +86,7 @@ importers:
         version: 3.3.1
       tailwind-variants:
         specifier: ^2.1.0
-        version: 2.1.0(tailwind-merge@3.3.1)(tailwindcss@4.1.11)
-      tailwindcss:
-        specifier: ^4.0.0
-        version: 4.1.11
+        version: 2.1.0(tailwind-merge@3.3.1)
       tw-animate-css:
         specifier: ^1.3.6
         version: 1.3.6
@@ -1976,10 +1973,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@tailwindcss/forms@0.5.10(tailwindcss@4.1.11)':
+  '@tailwindcss/forms@0.5.10':
     dependencies:
       mini-svg-data-uri: 1.4.4
-      tailwindcss: 4.1.11
 
   '@tailwindcss/node@4.1.11':
     dependencies:
@@ -2045,13 +2041,12 @@ snapshots:
       '@tailwindcss/oxide-win32-arm64-msvc': 4.1.11
       '@tailwindcss/oxide-win32-x64-msvc': 4.1.11
 
-  '@tailwindcss/typography@0.5.16(tailwindcss@4.1.11)':
+  '@tailwindcss/typography@0.5.16':
     dependencies:
       lodash.castarray: 4.4.0
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       postcss-selector-parser: 6.0.10
-      tailwindcss: 4.1.11
 
   '@tailwindcss/vite@4.1.11(vite@5.4.19(lightningcss@1.30.1))':
     dependencies:
@@ -2912,9 +2907,7 @@ snapshots:
 
   tailwind-merge@3.3.1: {}
 
-  tailwind-variants@2.1.0(tailwind-merge@3.3.1)(tailwindcss@4.1.11):
-    dependencies:
-      tailwindcss: 4.1.11
+  tailwind-variants@2.1.0(tailwind-merge@3.3.1):
     optionalDependencies:
       tailwind-merge: 3.3.1
 

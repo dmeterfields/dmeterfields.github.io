@@ -1,14 +1,9 @@
 <script lang="ts">
-	import img from '$lib/assets/dmeterfields-sigil.svg';
-	import ServiceTile from '$lib/components/service-tile.svelte';
-	import type { Service } from '$lib/models/service';
+	import DmeterfieldsLogo from '$lib/assets/dmeterfields-sigil.svg?raw';
 	import * as commonmark from 'commonmark';
 
-	var reader = new commonmark.Parser({ smart: true });
-	var writer = new commonmark.HtmlRenderer({ safe: true });
-	var parsed = reader.parse('Hello *world*'); // parsed is a 'Node' tree
-	// transform parsed if you like...
-	var result = writer.render(parsed); // result is a String
+	const reader = new commonmark.Parser({ smart: true });
+	const writer = new commonmark.HtmlRenderer({ safe: true });
 
 	const navLinks = [
 		{ title: 'products', href: '#' },
@@ -16,24 +11,41 @@
 		{ title: 'clients', href: '#' }
 	];
 
-	const services: Service[] = [
+	const blurbs: { title: string; content: string }[] = [
 		{
-			label: 'Tolling',
-			description: 'what'
+			title: 'Hassle Free',
+			content: `We know how hard it is to run a business. That's why it's important to us to be a reliable, high-quality supplier, so you can focus on what only you can do.
+
+We'll take the rest off your plate.`
 		},
 		{
-			label: 'Storage',
-			description: 'Lorem Ipsum'
+			title: 'End to End',
+			content: `Our service line is comprehensive, and we handle everything from farm right up to your kitchen.`
 		},
 		{
-			label: 'Logistics',
-			description: 'foo'
+			title: 'A Proven Track Record',
+			content: 'foo'
+		}
+	];
+
+	const services: { title: string; content: string }[] = [
+		{
+			title: 'Tolling',
+			content: 'what'
+		},
+		{
+			title: 'Storage',
+			content: 'Lorem Ipsum'
+		},
+		{
+			title: 'Logistics',
+			content: 'foo'
 		}
 	];
 </script>
 
 <section id="hero" class="container">
-	<nav>
+	<nav id="main-nav">
 		<ul>
 			{#each navLinks as navLink}
 				<li>
@@ -42,24 +54,47 @@
 			{/each}
 		</ul>
 	</nav>
-	<img id="sigil" src={img} alt="Dmeter Fields Logo" />
+	<!-- <img id="sigil" src={img} alt="Dmeter Fields Logo" /> -->
+	<div id="sigil">
+		{@html DmeterfieldsLogo}
+	</div>
 	<h1 id="brand">Dmeter Fields</h1>
-
-	<p>From the start to the end</p>
-	<h1 id="slogan">Making your day</h1>
-	<p>We approach food supply like engineers.</p>
-
-	<div>
-		<h3>Hassle Free</h3>
-		<h3>End to End</h3>
-		<h3>A Proven Track Record</h3>
+</section>
+<section>
+	<h2>Making your day</h2>
+	<div class="blurb-container">
+		{#each blurbs as blurb}
+			<div class="">
+				<h3>{blurb.title}</h3>
+				<p>{@html writer.render(reader.parse(blurb.content))}</p>
+			</div>
+		{/each}
 	</div>
 </section>
-{#each services as service}
-	<ServiceTile {service} />
-{/each}
+<section>
+	<h2>Services</h2>
+	<div class="blurb-container">
+		{#each services as service}
+			<div>
+				<h3>{service.title}</h3>
+				<p>{@html writer.render(reader.parse(service.content))}</p>
+			</div>
+		{/each}
+	</div>
+</section>
+<section>
+	<h2>Products</h2>
+	<!-- <div class="blurb-container">
+		{#each services as service}
+			<div>
+				<h3>{service.title}</h3>
+				<p>{@html writer.render(reader.parse(service.content))}</p>
+			</div>
+		{/each}
+	</div> -->
+</section>
 
-<style>
+<style scoped>
 	#sigil {
 		width: calc(min(12rem, 50vh));
 	}
@@ -67,25 +102,28 @@
 	#brand {
 		font-weight: 100;
 		font-size: 3rem;
-		color: white;
+		/* color: white; */
 	}
 
 	#slogan {
 		font-weight: 900;
 		font-size: 3rem;
-		color: var(--brand-color-alt);
+		/* color: var(--brand-color-alt); */
 	}
 
 	#hero {
-		background-color: var(--brand-color);
+		/* background-color: var(--brand-color); */
+	}
+
+	#main-nav {
 	}
 
 	.container {
-		display: flex;
+		/* display: flex;
 		flex-direction: column;
 		justify-content: center;
-		align-items: center;
+		align-items: center; */
 		/* height: 100%; */
-		width: 100%;
+		/* width: 100%; */
 	}
 </style>

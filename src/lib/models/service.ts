@@ -1,4 +1,0 @@
-export interface Service {
-  label: string;
-  description: string;
-}
