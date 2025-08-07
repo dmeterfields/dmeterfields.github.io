@@ -11,20 +11,23 @@
 		{ title: 'clients', href: '#' }
 	];
 
-	const blurbs: { title: string; content: string }[] = [
+	const blurbs: { title: string; content: string; cta: string | null }[] = [
+		{
+			title: 'End to End',
+			content: `Our service and product lines are comprehensive, and we handle everything from farm right up to your kitchen. Want a specific cut of meat? Can do. Want us to store it for you too? We've got your back.`,
+			cta: null
+		},
 		{
 			title: 'Hassle Free',
 			content: `We know how hard it is to run a business. That's why it's important to us to be a reliable, high-quality supplier, so you can focus on what only you can do.
 
-We'll take the rest off your plate.`
-		},
-		{
-			title: 'End to End',
-			content: `Our service line is comprehensive, and we handle everything from farm right up to your kitchen.`
+We'll take the rest off your plate.`,
+			cta: null
 		},
 		{
 			title: 'A Proven Track Record',
-			content: 'foo'
+			content: `All of these promises mean nothing if we don't have a track record to prove it. We've supplied your favorite restaurants and supermarkets, and sometimes, other suppliers.`,
+			cta: 'See our clients'
 		}
 	];
 
