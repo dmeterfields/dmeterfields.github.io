@@ -1,14 +1,21 @@
 <script lang="ts">
 	import DmeterfieldsLogo from '$lib/assets/dmeterfields-sigil.svg?raw';
+	import ServicesPreview from '$lib/components/services-preview.svelte';
+	import { Tabs } from 'bits-ui';
 	import * as commonmark from 'commonmark';
+
+	type ServicesType = 'tolling' | 'storage' | 'logistics';
+	const serviceTypes = ['tolling', 'storage', 'logistics'];
+	let selectedTab = $state<ServicesType>('tolling');
 
 	const reader = new commonmark.Parser({ smart: true });
 	const writer = new commonmark.HtmlRenderer({ safe: true });
 
 	const navLinks = [
-		{ title: 'products', href: '#' },
-		{ title: 'services', href: '#' },
-		{ title: 'clients', href: '#' }
+		{ title: 'services', href: '#services' },
+		{ title: 'facilities', href: '#facilities' },
+		{ title: 'products', href: '#products' },
+		{ title: 'clients', href: '#clients' }
 	];
 
 	const blurbs: { title: string; content: string; cta: string | null }[] = [
@@ -45,6 +52,21 @@ We'll take the rest off your plate.`,
 			content: 'foo'
 		}
 	];
+
+	const products = [
+		{
+			name: 'Carcass',
+			subProducts: [{ name: 'Fresh Chilled Carcass' }, { name: 'Frozen Carcass' }]
+		},
+		{
+			name: 'Primals',
+			subProducts: [
+				{ name: 'Chilled Primals' },
+				{ name: 'Boxed Frozen Primals (Local)' },
+				{ name: 'Boxed Frozen Primals (imported)' }
+			]
+		}
+	];
 </script>
 
 <section id="hero" class="container">
@@ -63,7 +85,7 @@ We'll take the rest off your plate.`,
 	</div>
 	<h1 id="brand">Dmeter Fields</h1>
 </section>
-<section>
+<section class="container">
 	<h2>Making your day</h2>
 	<div class="blurb-container">
 		{#each blurbs as blurb}
@@ -74,19 +96,45 @@ We'll take the rest off your plate.`,
 		{/each}
 	</div>
 </section>
-<section>
-	<h2>Services</h2>
-	<div class="blurb-container">
+<section class="container">
+	<h2 id="services">Services</h2>
+	<Tabs.Root bind:value={selectedTab}>
+		<Tabs.List>
+			{#each serviceTypes as tabValue}
+				<Tabs.Trigger value={tabValue}>{tabValue}</Tabs.Trigger>
+			{/each}
+		</Tabs.List>
+		<Tabs.Content value={'tolling'}>
+			<ServicesPreview />
+		</Tabs.Content>
+		<Tabs.Content value={'storage'}></Tabs.Content>
+		<Tabs.Content value={'logistics'}></Tabs.Content>
+	</Tabs.Root>
+</section>
+<section class="container">
+	<h2 id="facilities">Facilities</h2>
+	<!-- <div class="blurb-container">
 		{#each services as service}
 			<div>
 				<h3>{service.title}</h3>
 				<p>{@html writer.render(reader.parse(service.content))}</p>
 			</div>
 		{/each}
-	</div>
+	</div> -->
 </section>
-<section>
-	<h2>Products</h2>
+<section class="container">
+	<h2 id="products">Products</h2>
+	<!-- <div class="blurb-container">
+		{#each services as service}
+			<div>
+				<h3>{service.title}</h3>
+				<p>{@html writer.render(reader.parse(service.content))}</p>
+			</div>
+		{/each}
+	</div> -->
+</section>
+<section class="container">
+	<h2 id="clients">Clients</h2>
 	<!-- <div class="blurb-container">
 		{#each services as service}
 			<div>
