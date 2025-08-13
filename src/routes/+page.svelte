@@ -21,7 +21,7 @@
 	const blurbs: { title: string; content: string; cta: string | null }[] = [
 		{
 			title: 'End to End',
-			content: `Our service and product lines are comprehensive, and we handle everything from farm right up to your kitchen. Want a specific cut of meat? Can do. Want us to store it for you too? We've got your back.`,
+			content: `Our service and product lines are comprehensive, and we handle everything from our farm right up to your kitchen. Want a specific cut of meat? Can do. Want us to store it and deliver it for you too? We've got your back.`,
 			cta: null
 		},
 		{

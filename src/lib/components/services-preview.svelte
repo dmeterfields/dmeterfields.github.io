@@ -10,7 +10,7 @@
 		{#each tollingServices as tollingService}
 			<div class="tolling-service card">
 				<h3>{tollingService.name}</h3>
-				<p>{tollingService.description}</p>
+				<p>{tollingService.summary}</p>
 			</div>
 		{/each}
 	</div>

@@ -3,11 +3,13 @@ import type { Service } from "$lib/models/service";
 export const tollingServices: Service[] = [
   {
     name: 'Fabrication',
+    summary: 'Carcass to primals',
     description:
       'The initial conversion of a carcass into the identifiable parts or *primals* you know and love. Chuck, Ribeye, Loin, etc...'
   },
   {
     name: 'Transformation',
+    summary: 'Primals to cut meat',
     description: `Maybe a primal is too much to handle; maybe you want thin slices or small cubes. That's where Transformation comes in.`,
     subservice: [
       {
@@ -24,6 +26,7 @@ export const tollingServices: Service[] = [
   },
   {
     name: 'Marination',
+    summary: '',
     description: '',
     subservice: [
       { name: 'Custom Marinates', description: '' },
@@ -32,6 +35,7 @@ export const tollingServices: Service[] = [
   },
   {
     name: 'Cooking',
+    summary: '',
     description: '',
     subservice: [
       { name: 'Boiling', description: '' },
@@ -41,6 +45,7 @@ export const tollingServices: Service[] = [
   },
   {
     name: 'Processed Foods',
+    summary: '',
     description: '',
     subservice: [
       { name: 'Sausage', description: '' },
@@ -50,5 +55,9 @@ export const tollingServices: Service[] = [
       { name: 'Burger Patty', description: '' }
     ]
   },
-  { name: 'Ready to Heat Meal', description: '' }
+  {
+    name: 'Ready to Heat Meal',
+    summary: '',
+    description: '',
+  }
 ];
