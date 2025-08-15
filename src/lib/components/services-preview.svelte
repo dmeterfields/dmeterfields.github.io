@@ -16,7 +16,7 @@
 
 <div>
 	<p>One of our major services is to process meat for our customers</p>
-	<div>
+	<!-- <div>
 		<Accordion.Root type="single" value={''}>
 			{#each tollingServices as tollingService}
 				<Accordion.Item value={tollingService.name}>
@@ -42,7 +42,7 @@
 				</Accordion.Item>
 			{/each}
 		</Accordion.Root>
-	</div>
+	</div> -->
 	<div class="tolling-services">
 		{#each tollingServices as tollingService}
 			<div class="tolling-service card">
