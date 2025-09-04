@@ -36,8 +36,10 @@
 		}
 
 		input,
+		button,
 		textarea {
 			font-family: var(--font-family);
+			font-size: clamp(0.8rem, 2vw, 1.2rem);
 		}
 
 		section.container {

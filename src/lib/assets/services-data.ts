@@ -10,7 +10,7 @@ export const tollingServices: Service[] = [
   {
     name: 'Transformation',
     summary: 'Primals to cut meat',
-    description: `Maybe a primal is too much to handle; maybe you want thin slices or small cubes. That's where Transformation comes in.`,
+    description: 'Often, a restaurant wants thin slices or small cubes, or something special. We can cut your order down to a manageable size, minimizing the amount of work your kitchen needs to do.',
     subservice: [
       {
         name: 'Cutting',
@@ -27,7 +27,7 @@ export const tollingServices: Service[] = [
   {
     name: 'Marination',
     summary: '',
-    description: '',
+    description: 'Marination and brining can cost precious time and space in your kitchen. We can marinate your orders to increase the efficiency of your kitchen.',
     subservice: [
       { name: 'Custom Marinates', description: '' },
       { name: 'Brining', description: '' }
@@ -36,7 +36,7 @@ export const tollingServices: Service[] = [
   {
     name: 'Cooking',
     summary: '',
-    description: '',
+    description: 'A large number of guests is a good thing, but it can be a challenge to serve them on time. We can boil, fry, or bake your raws to decrease your turnaround time. Simply reheat, and then plate!',
     subservice: [
       { name: 'Boiling', description: '' },
       { name: 'Frying', description: '' },
@@ -46,7 +46,7 @@ export const tollingServices: Service[] = [
   {
     name: 'Processed Foods',
     summary: '',
-    description: '',
+    description: 'Some foods take a lot more than marinades and cooking. We offer these additional processes and machinery for the creation of products like sausages, tocino, and burger patties, that a typical restaurant kitchen does not have the capacity for, or would simply prefer not to handle.',
     subservice: [
       { name: 'Sausage', description: '' },
       { name: 'Tocino', description: '' },
@@ -58,6 +58,6 @@ export const tollingServices: Service[] = [
   {
     name: 'Ready to Heat Meals',
     summary: '',
-    description: '',
+    description: 'The natural conclusion to having all our preceding capacities is simply to have an entirely cooked meal, packaged, and ready to heat. We offer white-labeling of these meals, so you can focus on your brands and ideas, and we can execute.',
   }
 ];
