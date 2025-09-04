@@ -38,7 +38,7 @@
 	<h2 id="slogan">Making your day</h2>
 	<SunHorizon size="4rem" />
 	<div class="timeline">
-		<Accordion.Root type="multiple" value={['you']}>
+		<Accordion.Root type="single">
 			{#snippet child({ props })}
 				<ul class="tolling-services">
 					{#each tollingServices as tollingService}
@@ -91,42 +91,6 @@
 							{/if}
 						</form>
 					</li>
-					<!-- <Accordion.Item value="you">
-						{#snippet child({ props })}
-							<li>
-								<Accordion.Header>
-									<Accordion.Trigger>
-										{#snippet child({ props })}
-											<button {...props} class="tolling-service__chip">You</button>
-										{/snippet}
-									</Accordion.Trigger>
-								</Accordion.Header>
-								<Accordion.Content forceMount>
-									{#snippet child({ props, open })}
-										{#if open}
-											<form
-												id="contact"
-												class="tolling-service__content"
-												{...props}
-												transition:slide={{ duration: 300 }}
-												on:submit|preventDefault={handleSubmit}
-											>
-												<input type="hidden" name="access_key" value={accessKey} />
-												<input type="text" name="name" placeholder="name" required />
-												<input type="email" name="email" placeholder="email address" required />
-												<textarea name="message" placeholder="message" required rows="3"></textarea>
-												{#if status === ''}
-													<input type="submit" />
-												{:else}
-													{status}
-												{/if}
-											</form>
-										{/if}
-									{/snippet}
-								</Accordion.Content>
-							</li>
-						{/snippet}
-					</Accordion.Item> -->
 				</ul>
 			{/snippet}
 		</Accordion.Root>
