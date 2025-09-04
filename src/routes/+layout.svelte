@@ -18,6 +18,8 @@
 		--layout-gap-sm: clamp(1rem, 3vmax, 1.5rem);
 		--layout-gap-md: clamp(1.5rem, 6vmax, 3rem);
 		--layout-gap-lg: clamp(3rem, 8vmax, 4rem);
+
+		--font-family: 'Geist Mono', monospace;
 	}
 	:global {
 		body {
@@ -25,12 +27,17 @@
 			/* height: 100vh;
 			width: 100vw; */
 			margin: 0;
-			font-family: 'Geist Mono', monospace;
+			font-family: var(--font-family);
 			font-optical-sizing: auto;
 			font-weight: 400;
 			font-style: normal;
 			font-size: clamp(0.8rem, 2vw, 1.2rem);
 			color: white;
+		}
+
+		input,
+		textarea {
+			font-family: var(--font-family);
 		}
 
 		section.container {

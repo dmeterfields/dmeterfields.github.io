@@ -1,8 +1,10 @@
 <script lang="ts">
 	import DmeterfieldsLogo from '$lib/assets/dmeterfields-sigil.svg?raw';
 	import ServicesPreview from '$lib/components/services-preview.svelte';
+	import { tollingServices } from '$lib/assets/services-data';
 	import { Tabs } from 'bits-ui';
 	import * as commonmark from 'commonmark';
+	import TemporaryLanding from '$lib/components/temporary-landing.svelte';
 
 	type ServicesType = 'tolling' | 'storage' | 'logistics';
 	const serviceTypes = ['tolling', 'storage', 'logistics'];
@@ -69,7 +71,9 @@ We'll take the rest off your plate.`,
 	];
 </script>
 
-<section id="hero" class="container">
+<TemporaryLanding />
+
+<!-- <section id="hero" class="container">
 	<nav id="main-nav">
 		<ul>
 			{#each navLinks as navLink}
@@ -79,7 +83,6 @@ We'll take the rest off your plate.`,
 			{/each}
 		</ul>
 	</nav>
-	<!-- <img id="sigil" src={img} alt="Dmeter Fields Logo" /> -->
 	<div id="sigil">
 		{@html DmeterfieldsLogo}
 	</div>
@@ -113,37 +116,13 @@ We'll take the rest off your plate.`,
 </section>
 <section class="container">
 	<h2 id="facilities">Facilities</h2>
-	<!-- <div class="blurb-container">
-		{#each services as service}
-			<div>
-				<h3>{service.title}</h3>
-				<p>{@html writer.render(reader.parse(service.content))}</p>
-			</div>
-		{/each}
-	</div> -->
 </section>
 <section class="container">
 	<h2 id="products">Products</h2>
-	<!-- <div class="blurb-container">
-		{#each services as service}
-			<div>
-				<h3>{service.title}</h3>
-				<p>{@html writer.render(reader.parse(service.content))}</p>
-			</div>
-		{/each}
-	</div> -->
 </section>
 <section class="container">
 	<h2 id="clients">Clients</h2>
-	<!-- <div class="blurb-container">
-		{#each services as service}
-			<div>
-				<h3>{service.title}</h3>
-				<p>{@html writer.render(reader.parse(service.content))}</p>
-			</div>
-		{/each}
-	</div> -->
-</section>
+</section> -->
 
 <style scoped>
 	#sigil {

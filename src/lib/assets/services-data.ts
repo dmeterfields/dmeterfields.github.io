@@ -56,7 +56,7 @@ export const tollingServices: Service[] = [
     ]
   },
   {
-    name: 'Ready to Heat Meal',
+    name: 'Ready to Heat Meals',
     summary: '',
     description: '',
   }
