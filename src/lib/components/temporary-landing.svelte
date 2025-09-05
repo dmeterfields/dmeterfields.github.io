@@ -64,13 +64,13 @@
 									<Accordion.Content forceMount>
 										{#snippet child({ props, open })}
 											{#if open}
-												<div
+												<p
 													class="tolling-service__content"
 													{...props}
 													transition:slide={{ duration: 300 }}
 												>
 													{tollingService.description}
-												</div>
+												</p>
 											{/if}
 										{/snippet}
 									</Accordion.Content>
@@ -124,6 +124,10 @@
 	textarea:focus {
 		outline-color: var(--brand-color-alt);
 		outline-width: thin;
+	}
+
+	p {
+		font-weight: 300;
 	}
 
 	input[type='submit'] {
@@ -234,5 +238,6 @@
 		color: var(--brand-color);
 		/* border: 1px solid var(--brand-color); */
 		padding: 0 1rem 1rem 1rem;
+		margin: 0;
 	}
 </style>
