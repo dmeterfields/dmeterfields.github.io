@@ -47,11 +47,11 @@
 	<div class="timeline">
 		<Accordion.Root type="single">
 			{#snippet child({ props })}
-				<ul class="tolling-services">
+				<ul {...props} class="tolling-services">
 					{#each tollingServices as tollingService}
 						<Accordion.Item value={tollingService.name}>
 							{#snippet child({ props })}
-								<li>
+								<li {...props}>
 									<Accordion.Header>
 										<Accordion.Trigger>
 											{#snippet child({ props })}
@@ -86,7 +86,7 @@
 							transition:slide={{ duration: 300 }}
 							on:submit|preventDefault={handleSubmit}
 						>
-							<div {...props} class="tolling-service__chip--open">You</div>
+							<div class="tolling-service__chip--open">You</div>
 							<input type="hidden" name="access_key" value={accessKey} />
 							<input type="text" name="name" placeholder="name" required />
 							<input type="email" name="email" placeholder="email address" required />
