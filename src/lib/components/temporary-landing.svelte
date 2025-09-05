@@ -35,7 +35,14 @@
 		{@html DmeterfieldsLogo}
 	</div>
 	<h1 id="brand">Dmeter Fields</h1>
-	<h2 id="slogan">Making your day</h2>
+	<div class="blurb">
+		<h2 id="slogan">Making your day</h2>
+		<p>
+			We know how hard it is to run a business. That's why we do everything we can to be a reliable,
+			high-quality supplier, so you can focus on what only you can do.
+		</p>
+		<p>We'll take the rest off your plate.</p>
+	</div>
 	<SunHorizon size="4rem" />
 	<div class="timeline">
 		<Accordion.Root type="single">
@@ -112,6 +119,18 @@
 		color: var(--brand-color);
 	}
 
+	input[type='submit'] {
+		cursor: pointer;
+		transition-property: background-color;
+		transition-duration: 200ms;
+	}
+
+	input[type='submit']:hover {
+		color: var(--brand-color-alt);
+		border-color: var(--brand-color-alt);
+		background-color: var(--brand-color-lighter);
+	}
+
 	#sigil {
 		width: calc(min(12rem, 50vh));
 	}
@@ -127,8 +146,9 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		margin: 8rem 0;
+		margin: 8rem auto;
 		gap: 1rem;
+		width: max(min(100vw, 40rem), 50vw);
 	}
 
 	#slogan {
@@ -138,6 +158,12 @@
 		/* color: var(--brand-color-alt); */
 	}
 
+	.blurb {
+		padding: 1rem;
+	}
+	.blurb h2 {
+		text-align: center;
+	}
 	form.tolling-service__content {
 		display: flex;
 		flex-direction: column;
@@ -147,7 +173,7 @@
 
 	.timeline {
 		position: relative;
-		width: max(min(100vw, 40rem), 50vw);
+		width: 100%;
 	}
 
 	.timeline__line {
@@ -182,7 +208,7 @@
 		font-family: var(--font-family);
 		cursor: pointer;
 		transition-property: color, border-color, background-color;
-		transition-duration: 300ms;
+		transition-duration: 200ms;
 	}
 
 	.tolling-service__chip:hover {

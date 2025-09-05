@@ -8,6 +8,7 @@
 	:global(:root) {
 		--brand-color: #005843;
 		--brand-color-alt: #002729;
+		--brand-color-lighter: #b2d9d0;
 		--width-large: 67.5rem;
 		--standard-gap: 2rem;
 
