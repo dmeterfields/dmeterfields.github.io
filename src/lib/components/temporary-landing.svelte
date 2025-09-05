@@ -117,6 +117,13 @@
 	textarea {
 		padding: 1rem;
 		color: var(--brand-color);
+		resize: vertical;
+	}
+
+	input:focus,
+	textarea:focus {
+		outline-color: var(--brand-color-alt);
+		outline-width: thin;
 	}
 
 	input[type='submit'] {
