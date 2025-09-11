@@ -4,8 +4,12 @@
 	import { Accordion } from 'bits-ui';
 	import { Sun, SunHorizon } from 'phosphor-svelte';
 	import { slide } from 'svelte/transition';
+	import * as commonmark from 'commonmark';
 
-	const accessKey = '52251db6-c0b7-4ebc-b9fd-4ee9b80926c4';
+	const accessKey = '33ae2c7b-2096-429f-80d3-b63a8b8d751e';
+
+	const reader = new commonmark.Parser({ smart: true });
+	const writer = new commonmark.HtmlRenderer();
 
 	let status = '';
 	const handleSubmit = async (data: { currentTarget: HTMLFormElement | undefined }) => {
@@ -28,6 +32,10 @@
 			status = result.message || 'Success';
 		}
 	};
+
+	var parsed = reader.parse('Hello *world*'); // parsed is a 'Node' tree
+	// transform parsed if you like...
+	var result = writer.render(parsed); // result is a String
 </script>
 
 <section id="temporary">
@@ -38,10 +46,15 @@
 	<div class="blurb">
 		<h2 id="slogan">Making your day</h2>
 		<p>
-			We know how hard it is to run a business. That's why we do everything we can to be a reliable,
-			high-quality supplier, so you can focus on what only you can do.
+			If you succeed, we succeed. We treat our clients as partners, and that's why we do everything
+			we can to help you thrive: consistent, reliable service, mixed with out-of-the-box solutions.
+			We support you behind the scenes so you can focus on what you do best.
 		</p>
-		<p>We'll take the rest off your plate.</p>
+		<!-- <p>
+			We know how hard it is to run a business. That's why we do everything we can to be a reliable,
+			dedicated partner, so you can focus on what only you can do.
+		</p> -->
+		<!-- <p>We'll take the rest off your plate.</p> -->
 	</div>
 	<SunHorizon size="4rem" />
 	<div class="timeline">
@@ -55,22 +68,22 @@
 									<Accordion.Header>
 										<Accordion.Trigger>
 											{#snippet child({ props })}
-												<button {...props} class="tolling-service__chip"
-													>{tollingService.name}</button
-												>
+												<button {...props} class="tolling-service__chip">
+													{tollingService.name}
+												</button>
 											{/snippet}
 										</Accordion.Trigger>
 									</Accordion.Header>
 									<Accordion.Content forceMount>
 										{#snippet child({ props, open })}
 											{#if open}
-												<p
+												<div
 													class="tolling-service__content"
 													{...props}
 													transition:slide={{ duration: 300 }}
 												>
-													{tollingService.description}
-												</p>
+													{@html writer.render(reader.parse(tollingService.description))}
+												</div>
 											{/if}
 										{/snippet}
 									</Accordion.Content>
@@ -104,6 +117,7 @@
 		<div class="timeline__line"></div>
 	</div>
 	<Sun size="4rem" />
+	<p class="copyright"><small>Copyright © 2026 D'meter Fields Corporation</small></p>
 </section>
 
 <style scoped>
@@ -140,6 +154,10 @@
 		color: var(--brand-color-alt);
 		border-color: var(--brand-color-alt);
 		background-color: var(--brand-color-lighter);
+	}
+
+	.copyright {
+		margin-top: 3rem;
 	}
 
 	#sigil {
@@ -234,10 +252,11 @@
 	}
 
 	.tolling-service__content {
+		display: flow-root;
 		background-color: white;
 		color: var(--brand-color);
 		/* border: 1px solid var(--brand-color); */
-		padding: 0 1rem 1rem 1rem;
+		padding: 0 1rem;
 		margin: 0;
 	}
 </style>
